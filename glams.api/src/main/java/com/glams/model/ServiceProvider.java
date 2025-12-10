@@ -19,7 +19,9 @@ public class ServiceProvider extends CreatedOnlyEntity{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Long userId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
 
     private String businessName;
     private String businessAddress;

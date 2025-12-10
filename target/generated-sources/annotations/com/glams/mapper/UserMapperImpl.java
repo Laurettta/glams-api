@@ -2,15 +2,13 @@ package com.glams.mapper;
 
 import com.glams.dto.request.UserRequestDTO;
 import com.glams.dto.response.UserResponseDTO;
-import com.glams.model.Role;
 import com.glams.model.User;
-import java.util.Set;
 import javax.annotation.processing.Generated;
 import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-12-09T03:07:23+0100",
+    date = "2025-12-10T02:00:08+0100",
     comments = "version: 1.6.3, compiler: javac, environment: Java 17.0.7 (Oracle Corporation)"
 )
 @Component
@@ -24,7 +22,6 @@ public class UserMapperImpl implements UserMapper {
 
         User.UserBuilder user = User.builder();
 
-        user.roles( mapRoleNamesToRoles( dto.getRoles() ) );
         user.fullName( dto.getFullName() );
         user.email( dto.getEmail() );
         user.password( dto.getPassword() );
@@ -59,19 +56,6 @@ public class UserMapperImpl implements UserMapper {
             return;
         }
 
-        if ( user.getRoles() != null ) {
-            Set<Role> set = mapRoleNamesToRoles( dto.getRoles() );
-            if ( set != null ) {
-                user.getRoles().clear();
-                user.getRoles().addAll( set );
-            }
-        }
-        else {
-            Set<Role> set = mapRoleNamesToRoles( dto.getRoles() );
-            if ( set != null ) {
-                user.setRoles( set );
-            }
-        }
         if ( dto.getFullName() != null ) {
             user.setFullName( dto.getFullName() );
         }

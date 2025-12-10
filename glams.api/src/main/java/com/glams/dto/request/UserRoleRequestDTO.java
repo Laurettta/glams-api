@@ -11,4 +11,6 @@ public class UserRoleRequestDTO {
 
     private Long userId;
     private Long roleId;
+    private String roleName;
+
 }

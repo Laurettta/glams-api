@@ -13,6 +13,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
+@RequestMapping("/api/service-client-link")
 @Data
 public class ServiceClientLinkController {
 
@@ -33,7 +34,7 @@ public class ServiceClientLinkController {
         return  ResponseEntity.ok(serviceClientLinkService.getAllServiceClientLink());
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id){
         serviceClientLinkService.delete(id);
         return ResponseEntity.noContent().build();

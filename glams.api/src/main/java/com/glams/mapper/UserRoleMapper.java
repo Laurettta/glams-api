@@ -16,5 +16,6 @@ public interface UserRoleMapper {
     // Only map entity to DTO
     @Mapping(target = "userId", source = "user.id")
     @Mapping(target = "roleId", source = "role.id")
+    @Mapping(target = "roleName", source = "role.name")
     UserRoleResponseDTO toDTO(UserRole entity);
 }

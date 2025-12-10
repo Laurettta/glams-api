@@ -3,12 +3,13 @@ package com.glams.mapper;
 import com.glams.dto.request.ServiceProviderRequestDTO;
 import com.glams.dto.response.ServiceProviderResponseDTO;
 import com.glams.model.ServiceProvider;
+import com.glams.model.User;
 import javax.annotation.processing.Generated;
 import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-12-09T03:07:23+0100",
+    date = "2025-12-10T02:29:04+0100",
     comments = "version: 1.6.3, compiler: javac, environment: Java 17.0.7 (Oracle Corporation)"
 )
 @Component
@@ -22,7 +23,6 @@ public class ServiceProviderMapperImpl implements ServiceProviderMapper {
 
         ServiceProvider.ServiceProviderBuilder serviceProvider = ServiceProvider.builder();
 
-        serviceProvider.userId( dto.getUserId() );
         serviceProvider.businessName( dto.getBusinessName() );
         serviceProvider.businessAddress( dto.getBusinessAddress() );
         serviceProvider.description( dto.getDescription() );
@@ -38,6 +38,7 @@ public class ServiceProviderMapperImpl implements ServiceProviderMapper {
 
         ServiceProviderResponseDTO.ServiceProviderResponseDTOBuilder serviceProviderResponseDTO = ServiceProviderResponseDTO.builder();
 
+        serviceProviderResponseDTO.userId( entityUserId( entity ) );
         serviceProviderResponseDTO.id( entity.getId() );
         serviceProviderResponseDTO.businessName( entity.getBusinessName() );
         serviceProviderResponseDTO.businessAddress( entity.getBusinessAddress() );
@@ -52,9 +53,6 @@ public class ServiceProviderMapperImpl implements ServiceProviderMapper {
             return;
         }
 
-        if ( dto.getUserId() != null ) {
-            entity.setUserId( dto.getUserId() );
-        }
         if ( dto.getBusinessName() != null ) {
             entity.setBusinessName( dto.getBusinessName() );
         }
@@ -64,5 +62,13 @@ public class ServiceProviderMapperImpl implements ServiceProviderMapper {
         if ( dto.getDescription() != null ) {
             entity.setDescription( dto.getDescription() );
         }
+    }
+
+    private Long entityUserId(ServiceProvider serviceProvider) {
+        User user = serviceProvider.getUser();
+        if ( user == null ) {
+            return null;
+        }
+        return user.getId();
     }
 }

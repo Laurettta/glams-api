@@ -13,8 +13,9 @@ public interface ServiceProviderMapper {
 
     ServiceProvider toEntity(ServiceProviderRequestDTO dto);
 
+    @org.mapstruct.Mapping(source = "user.id", target = "userId")
     ServiceProviderResponseDTO toDTO(ServiceProvider entity);
 
-    @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
+    @org.mapstruct.BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     void updateServiceProviderFromDto(ServiceProviderRequestDTO dto, @MappingTarget ServiceProvider entity);
 }

@@ -8,7 +8,7 @@ import lombok.Data;
 public class ServiceProviderResponseDTO {
 
     private Long id;
-    private Long UserId;
+    private Long userId;
     private String businessName;
     private String businessAddress;
     private String description;

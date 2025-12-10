@@ -11,6 +11,6 @@ import lombok.NoArgsConstructor;
 @Builder
 public class ServiceClientLinkRequestDTO {
 
-    private Long ClientId;
+    private Long clientId;
     private Long serviceProviderId;
 }
