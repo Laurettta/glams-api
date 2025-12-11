@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-12-10T01:02:48+0100",
+    date = "2025-12-11T18:20:00+0100",
     comments = "version: 1.6.3, compiler: javac, environment: Java 17.0.7 (Oracle Corporation)"
 )
 @Component
@@ -24,6 +24,7 @@ public class InvoiceItemMapperImpl implements InvoiceItemMapper {
         InvoiceItem.InvoiceItemBuilder invoiceItem = InvoiceItem.builder();
 
         invoiceItem.invoice( invoiceItemRequestDTOToInvoice( dto ) );
+        invoiceItem.itemName( dto.getItemName() );
         invoiceItem.price( dto.getPrice() );
         invoiceItem.quantity( dto.getQuantity() );
 

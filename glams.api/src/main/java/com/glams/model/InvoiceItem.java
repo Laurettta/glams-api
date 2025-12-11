@@ -23,7 +23,7 @@ public class InvoiceItem {
     private Invoice invoice;
 
     @Column(name = "item_name", nullable = false)
-    private String ItemName;
+    private String itemName;
 
 
     private int price;

@@ -10,6 +10,7 @@ public class InvoiceItemRequestDTO {
     @NotNull
     private Long invoiceId;
 
+    @NotNull
     private String itemName;
 
     @Min(0)

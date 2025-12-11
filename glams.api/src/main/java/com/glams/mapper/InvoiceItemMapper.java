@@ -9,6 +9,7 @@ import org.mapstruct.*;
 public interface InvoiceItemMapper {
 
     @Mapping(target = "invoice.id", source = "invoiceId")
+    @Mapping(target = "itemName", source = "itemName")
     @Mapping(target = "totalPrice", expression = "java(dto.getPrice() * dto.getQuantity())")
     InvoiceItem toEntity(InvoiceItemRequestDTO dto);
 
@@ -17,7 +18,4 @@ public interface InvoiceItemMapper {
 
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     void updateFromDto(InvoiceItemRequestDTO dto, @MappingTarget InvoiceItem entity);
-
-
-
 }
